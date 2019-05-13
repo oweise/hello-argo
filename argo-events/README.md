@@ -1,9 +1,10 @@
 Installation
 ============
 
-1. Create NS "argo-events"
+1. Create NSs
 
 ```
+kubectl create namespace argo
 kubectl create namespace argo-event
 ```
 

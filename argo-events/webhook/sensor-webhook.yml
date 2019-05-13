@@ -29,27 +29,9 @@ spec:
         version: v1alpha1
         kind: Workflow
         source:
-          inline: |
-            apiVersion: argoproj.io/v1alpha1
-            kind: Workflow
-            metadata:
-              generateName: webhook-
-            spec:
-              entrypoint: whalesay
-              arguments:
-                parameters:
-                - name: message
-                  # this is the value that should be overridden
-                  value: hello world
-              templates:
-              - name: whalesay
-                inputs:
-                  parameters:
-                  - name: message
-                container:
-                  image: docker/whalesay:latest
-                  command: [cowsay]
-                  args: ["{{inputs.parameters.message}}"]
+          git:
+            url: https://github.com/oweise/hello-argo.git
+            filePath: argo-events/workflow/ci-workflow.yml
       resourceParameters:
         - src:
             event: "webhook-gateway:example"
