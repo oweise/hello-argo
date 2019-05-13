@@ -32,6 +32,7 @@ spec:
           git:
             url: https://github.com/oweise/hello-argo.git
             filePath: argo-events/workflow/ci-workflow.yml
+            cloneDirectory: "/git/argoproj"
       resourceParameters:
         - src:
             event: "webhook-gateway:example"
