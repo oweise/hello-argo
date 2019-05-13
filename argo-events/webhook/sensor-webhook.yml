@@ -30,10 +30,15 @@ spec:
         kind: Workflow
         source:
           git:
-            url: https://github.com/oweise/hello-argo.git
+            url: https://to.be/replaced
             filePath: argo-events/workflow/ci-workflow.yml
             cloneDirectory: "/git/argoproj"
       resourceParameters:
         - src:
             event: "webhook-gateway:example"
           dest: spec.arguments.parameters.0.value
+      templateParameters:
+        - src:
+            event: "webhook-gateway:example"
+            path: url
+          dest: source.git.url
